@@ -1,5 +1,17 @@
 let todos = [];
 
+function loadTodos() {
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+        todos = JSON.parse(storedTodos);
+    }
+    render();
+}
+
+function savelocally() {
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
+
 function addTodo() {
     const inputEl = document.querySelector(".header input");
     if (!inputEl.value) {
@@ -8,14 +20,17 @@ function addTodo() {
     }
     todos.push({
         title: inputEl.value,
-        isEditing: false
+        isEditing: false,
+        isCompleted: false
     });
     inputEl.value = '';
+    savelocally()
     render();
 }
 
 function deleteTodo(ind) {
     todos.splice(ind, 1);
+    savelocally()
     render();
 }
 
@@ -33,11 +48,13 @@ function saveTodo(ind) {
     }
     todos[ind].title = inputEle.value;
     todos[ind].isEditing = false;
+    savelocally();
     render();
 }
 
 function toggleComplete(ind) {
     todos[ind].isCompleted = !todos[ind].isCompleted;
+    savelocally();
     render();
 }
 
@@ -115,3 +132,5 @@ function render() {
         todoComponent(todos[i], i);
     }
 }
+
+loadTodos();
