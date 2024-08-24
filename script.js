@@ -96,15 +96,16 @@ function todoComponent(todo, ind) {
         saveButton.setAttribute("onclick", `saveTodo(${ind})`);
         saveButton.setAttribute("class", "savebtn");
         saveButton.style.backgroundColor = "#369f57";
-        saveButton.style.color = "#ffffff"
-        // divEl.removeChild(completeButton);
+        saveButton.style.color = "#ffffff";
+        checkbox.disabled = "true";
         contentDiv.replaceChild(inputEl, todoText);
         buttonContainer.replaceChild(saveButton, editButton);
     }
     if (checkbox.checked) {
         todoText.style.textDecoration = "line-through";
         todoText.style.color = "rgb(0,255,0)";
-        
+        editButton.disabled = "true";
+        editButton.style.opacity = "0.7";
     }
 }
 

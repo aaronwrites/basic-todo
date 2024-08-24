@@ -12,8 +12,10 @@
 <body>
   <h1>Todos</h1>
   <div class="header">
-    <input type="text" placeholder="Add your Todos here">
-    <button onclick="addTodo()">Add todo</button>
+    <form onsubmit="return false;">
+      <input type="text" placeholder="Add your Todos here">
+      <button onclick="addTodo()">Add todo</button>
+    </form>
   </div>
   <div class="todos"> 
     
