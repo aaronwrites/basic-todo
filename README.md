@@ -6,5 +6,6 @@ I have added functionalities like,
  - Editing
  - Marking as complete
  - Deleting
+ - LocalStorage support
 
 I used render function and a component-based structure, even though it was implemented with vanilla JavaScript. I did this to practice and understand concepts that are fundamental in modern front-end frameworks like React.
